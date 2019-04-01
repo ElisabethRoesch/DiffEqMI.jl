@@ -6,8 +6,6 @@ function diffeqflux_example(param)
     end
     return guess_ODEfunc
 end
-
-
 # This is the example of the diffeqflux blog post.
 function diffeqflux_example_old(guess_A)
     function guess_ODEfunc(du, u, p, t)
@@ -15,8 +13,6 @@ function diffeqflux_example_old(guess_A)
     end
     return guess_ODEfunc
 end
-
-
 # This is lorenz.
 function lorenz_example(guess_p)
     function guess_ODEfunc(du,u,p,t)
