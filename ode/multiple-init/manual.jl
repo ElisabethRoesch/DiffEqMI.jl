@@ -16,10 +16,6 @@ function L2_loss_fct(params)
     print(params)
     return sum(abs2,noisy_data .- make_ode(params))
 end
-
-
-
-
 function make_ode(init_temp_A)
     temp_u0 = init_temp_A[1,:]
     temp_A = init_temp_A[2:3,:]
