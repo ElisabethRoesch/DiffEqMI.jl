@@ -9,7 +9,7 @@ mutable struct tester
     odes
     sols::Array{Float64,2}
 end
-#declare the tester
+# Declare the tester
 function tester()
     return tester(
         x->0,       # fnct
@@ -22,7 +22,7 @@ function tester()
         nothing,    # odes
         zeros(0,0)) #sols
 end
-#init the tester
+# Init the tester
 function init_tester(tester, fnct, datasize, n_subs, n_species, total_tspan, u0_start_values, params_start_values)
     tester.current_params= vcat(u0_start_values...,params_start_values)
     tester.datasize = datasize
@@ -54,11 +54,7 @@ function add_noise(in_data::AbstractArray{Float64,2}, noise_sigma::Float64)
     end
     return out_data
 end
-# Loss function
-function L2_loss_fct(params)
-    return sum(abs2,noisy_data .- make_ode(params))
-end
-#create s"sub" odes
+# Create "sub" odes
 function make_multiple(tester)
     fnct = tester.fnct
     n_subs = tester.n_subs
@@ -76,7 +72,7 @@ function make_multiple(tester)
     end
     tester.odes = odes
 end
-#solve the odes
+# Solve the ODEs
 function solve_multiple(tester)
     n_species = tester.n_species
     n_subs = tester.n_subs
@@ -91,7 +87,7 @@ function solve_multiple(tester)
         tester.sols[:,datasize_per_sub*(i-1)+1:datasize_per_sub*i] = DiffEqMI.make_ode(odes[i], inits[:,i], tspans[i], datasize_per_sub)
     end
 end
-#update model
+# Update model
 function update_tester(tester, params)
     n_species = tester.n_species
     n_subs = tester.n_subs
