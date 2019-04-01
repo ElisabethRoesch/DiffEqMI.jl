@@ -37,7 +37,7 @@ function L2_loss_fct(params)
 end
 ###################################################################
 save_first = DiffEqMI.update_tester(test, x)
-result_one = Optim.optimize(L2_loss_fct, x )
+result_one = Optim.optimize(L2_loss_fct, x ) #default: Nelder-Mead
 ###################################################################
 using Plots
 species = 1
