@@ -17,4 +17,4 @@ also to do:
 - test other noise
   sde wiener process
 - test other systems
-- somehow optimize number of re-init
+- somehow optimize number of re-init would be cool
