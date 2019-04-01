@@ -1,4 +1,4 @@
-Multiple shooting (= Multiple Inits) for solving diffeq robustly.
+Multiple shooting (= Multiple Inits = MI) for solving diffeq robustly.
 I follow ideas of: F. Hamilton, “Parameter estimation in differential equations: A numerical study of shooting methods,”
 SIAM Undergraduate Research Online, 2011.
 Difference is: As a default, I observe not only one species but all. (they say only x)
