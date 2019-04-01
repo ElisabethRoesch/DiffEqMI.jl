@@ -11,5 +11,10 @@ final goal: table with
   dim 3: example system
   dim 4: noise level
 
-also to do: test other noise distributions?
-further work: somehow optimize number of shooting nodes
+also to do:
+- use https://github.com/JuliaNLSolvers/LsqFit.jl/blob/master/src/levenberg_marquardt.jl
+  problem atm: "restricted by compatibility requirements with Atom [c52e3926] to versions: 0.1.0-0.1.2"
+- test other noise
+  sde wiener process
+- test other systems
+- somehow optimize number of re-init

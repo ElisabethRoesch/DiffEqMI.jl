@@ -41,12 +41,12 @@ result_one = Optim.optimize(L2_loss_fct, x )
 ###################################################################
 using Plots
 species = 1
-plot(total_t, ode_data[species,:], label="ODE data")
-scatter!(total_t, noisy_data[species,:], label="Noisy data")
+plot(total_t, ode_data[species,:], label="ode data")
+scatter!(total_t, noisy_data[species,:], label="noisy data")
 start_sys = DiffEqMI.diffeqflux_example(params_start_values)
 start_prob = ODEProblem(start_sys, u0_start_values[1], total_tspan)
 start_ode_data = Array(solve(start_prob,Tsit5(),saveat=total_t))
-plot!(total_t, start_ode_data[1,:], label="Start optim only params")
-plot!(total_t, save_first[species,:], label="Start optim with init")
-plot!(total_t, test.sols[species,:], label="End Nelder-Mead optim")
+plot!(total_t, start_ode_data[1,:], label="start optim only params")
+plot!(total_t, save_first[species,:], label="start optim with init")
+plot!(total_t, test.sols[species,:], label="end Nelder-Mead optim")
 ###################################################################
