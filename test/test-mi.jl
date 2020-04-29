@@ -33,12 +33,13 @@ DiffEqMI.init_tester(
                 u0_start_values,
                 params_start_values)
 function L2_loss_fct(params)
+    println("size(noisy_data)", size(noisy_data))
     return sum(abs2,noisy_data .- DiffEqMI.update_tester(test, params))
 end
 ###################################################################
 save_first = DiffEqMI.update_tester(test, x)
-#result_one = Optim.optimize(L2_loss_fct, x ) #default: Nelder-Mead
-result_one = Optim.optimize(L2_loss_fct, x ,LBFGS()) #default: Nelder-Mead
+result_one = Optim.optimize(L2_loss_fct, x ) #default: Nelder-Mead
+#result_one = Optim.optimize(L2_loss_fct, x ,LBFGS()) #default: Nelder-Mead
 
 ###################################################################
 using Plots
